@@ -1,0 +1,45 @@
+{
+  "name": "coinmarketcap-earn-notifier",
+  "version": "1.0.0",
+  "description": "Get notified when new learn & earn campaigns are available on CoinMarketCap",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knutkirkhorn/coinmarketcap-earn-notifier.git"
+  },
+  "keywords": [
+    "coinmarketcap",
+    "cmc",
+    "crypto",
+    "cryptocurrency",
+    "earn",
+    "learn",
+    "notifier",
+    "docker"
+  ],
+  "author": "Knut Kirkhorn",
+  "type": "module",
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/knutkirkhorn/coinmarketcap-earn-notifier/issues"
+  },
+  "homepage": "https://github.com/knutkirkhorn/coinmarketcap-earn-notifier#readme",
+  "dependencies": {
+    "discord.js": "^13.3.1",
+    "dotenv": "^10.0.0",
+    "puppeteer": "^12.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.4.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3"
+  }
+}
