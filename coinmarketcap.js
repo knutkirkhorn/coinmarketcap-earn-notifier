@@ -5,7 +5,13 @@ const earnUrl = 'https://coinmarketcap.com/earn';
 
 // eslint-disable-next-line import/prefer-default-export
 export async function fetchActiveCampaigns() {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage'
+        ]
+    });
     const page = await browser.newPage();
     await page.setUserAgent(userAgent);
     await page.goto(earnUrl);
