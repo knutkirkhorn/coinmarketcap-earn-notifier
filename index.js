@@ -39,11 +39,18 @@ async function notifyNewCampaign(campaign) {
             // eslint-disable-next-line no-await-in-loop
             const currentActiveCampaigns = await fetchActiveCampaigns();
             // eslint-disable-next-line no-loop-func
-            activeCampaigns = currentActiveCampaigns.filter(campaign => !activeCampaigns.some(activeCampaign => activeCampaign.name === campaign.name));
+            const newActiveCampaigns = currentActiveCampaigns.filter(campaign => !activeCampaigns.some(activeCampaign => activeCampaign.name === campaign.name));
 
-            for (let i = 0; i < activeCampaigns.length; i++) {
+            if (activeCampaigns.length === currentActiveCampaigns.length && newActiveCampaigns.length === 0) {
+                // eslint-disable-next-line no-continue
+                continue;
+            }
+
+            activeCampaigns = currentActiveCampaigns;
+
+            for (let i = 0; i < newActiveCampaigns.length; i++) {
                 // eslint-disable-next-line no-await-in-loop
-                await notifyNewCampaign(activeCampaigns[i]);
+                await notifyNewCampaign(newActiveCampaigns[i]);
             }
         } catch (error) {
             console.log(error);
