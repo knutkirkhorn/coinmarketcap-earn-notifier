@@ -44,5 +44,7 @@ export async function fetchActiveCampaigns() {
         return campaigns.filter(campaign => campaign.isActive);
     });
 
+    await browser.close();
+
     return activeCampaigns;
 }
