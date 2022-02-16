@@ -1,6 +1,7 @@
 {
   "name": "coinmarketcap-earn-notifier",
   "version": "1.0.0",
+  "private": true,
   "description": "Get notified when new learn & earn campaigns are available on CoinMarketCap",
   "main": "index.js",
   "scripts": {
