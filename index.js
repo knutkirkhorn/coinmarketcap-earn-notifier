@@ -1,5 +1,4 @@
 import {MessageEmbed, WebhookClient} from 'discord.js';
-// eslint-disable-next-line import/no-unresolved
 import {setTimeout} from 'timers/promises';
 import {fetchActiveCampaigns} from './coinmarketcap.js';
 import config from './config.js';
@@ -36,7 +35,6 @@ async function notifyNewCampaign(campaign) {
         try {
             console.log('Checking for earn campaigns at:', new Date());
 
-            // eslint-disable-next-line no-await-in-loop
             const currentActiveCampaigns = await fetchActiveCampaigns();
             // eslint-disable-next-line no-loop-func
             const newActiveCampaigns = currentActiveCampaigns.filter(campaign => !activeCampaigns.some(activeCampaign => activeCampaign.name === campaign.name));
@@ -49,13 +47,11 @@ async function notifyNewCampaign(campaign) {
             activeCampaigns = currentActiveCampaigns;
 
             for (let i = 0; i < newActiveCampaigns.length; i++) {
-                // eslint-disable-next-line no-await-in-loop
                 await notifyNewCampaign(newActiveCampaigns[i]);
             }
         } catch (error) {
             console.log(error);
         } finally {
-            // eslint-disable-next-line no-await-in-loop
             await setTimeout(config.waitTimeout);
         }
     }

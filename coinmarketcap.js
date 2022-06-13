@@ -3,7 +3,6 @@ import puppeteer from 'puppeteer';
 const userAgent = 'coinmarketcap-earn-notifier (https://github.com/knutkirkhorn/coinmarketcap-earn-notifier)';
 const earnUrl = 'https://coinmarketcap.com/earn';
 
-// eslint-disable-next-line import/prefer-default-export
 export async function fetchActiveCampaigns() {
     const browser = await puppeteer.launch({
         args: [
